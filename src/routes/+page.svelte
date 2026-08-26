@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import {CONTENT} from "./_/contents";
 
-  let mobileNavOpen = false;
+  type Project = (typeof CONTENT.projects.items)[number];
+
+  let mobileNavOpen = $state(false);
 
   function toggleMobileNav() {
     mobileNavOpen = !mobileNavOpen;
@@ -11,8 +13,28 @@
     mobileNavOpen = false;
   }
 
+  let activeProject: Project | null = $state(null);
+
+  function openProject(project: Project) {
+    activeProject = project;
+  }
+
+  function closeProject() {
+    activeProject = null;
+  }
+
+  function handleWindowKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape" && activeProject) {
+      closeProject();
+    }
+  }
+
+  $effect(() => {
+    document.body.style.overflow = activeProject ? "hidden" : "";
+  });
+
   /** Svelte action: reveal an element (add `.in`) when it scrolls into view. */
-  function reveal(node) {
+  function reveal(node: HTMLElement) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,6 +66,8 @@
     rel="stylesheet"
   />
 </svelte:head>
+
+<svelte:window on:keydown={handleWindowKeydown} />
 
 <header class="site-nav">
   <div class="wrap nav-inner">
@@ -151,6 +175,38 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Projects</h2>
+        <span class="marginalia">{CONTENT.projects.marginalia}</span>
+      </div>
+      <div class="projects-grid reveal" use:reveal>
+        {#each CONTENT.projects.items as project}
+          <button
+            type="button"
+            class="project-card"
+            on:click={() => openProject(project)}
+            aria-haspopup="dialog"
+          >
+            <div class="project-thumb">
+              <img src={project.thumb} alt={project.title} loading="lazy" />
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-year">{project.year}</span>
+                <span class="project-tag">{project.tags[0]}</span>
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+            </div>
+          </button>
+        {/each}
+      </div>
+    </div>
+  </section>
+
   <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="wrap">
@@ -239,6 +295,45 @@
     </div>
   </section>
 </main>
+
+{#if activeProject}
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div class="modal-overlay" on:click={closeProject}>
+    <div
+      class="modal-box"
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      on:click|stopPropagation
+    >
+      <button type="button" class="modal-close" on:click={closeProject} aria-label="Close">
+        &times;
+      </button>
+      <div class="modal-thumb">
+        <img src={activeProject.thumb} alt={activeProject.title} />
+      </div>
+      <div class="modal-body">
+        <div class="project-meta">
+          <span class="project-year">{activeProject.year}</span>
+          {#each activeProject.tags as tag (tag)}
+            <span class="project-tag">{tag}</span>
+          {/each}
+        </div>
+        <h3 id="modalTitle">{activeProject.title}</h3>
+        {#each activeProject.description as paragraph, i (i)}
+          <p>{paragraph}</p>
+        {/each}
+        {#if activeProject.href}
+          <a href={activeProject.href} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            View Project <span class="arrow">&rarr;</span>
+          </a>
+        {/if}
+      </div>
+    </div>
+  </div>
+{/if}
 
 <footer class="wrap">
   <span>{CONTENT.footer.copyright}</span>
@@ -643,6 +738,174 @@
     line-height: 1.65;
   }
 
+  /* ---------- projects ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--bronze-line);
+    border: 1px solid var(--bronze-line);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    background: var(--bone);
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .project-card:hover,
+  .project-card:focus-visible {
+    background: var(--stone);
+  }
+
+  .project-thumb {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--stone);
+    border-bottom: 1px solid var(--bronze-line);
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-info {
+    padding: 24px 26px 28px;
+  }
+
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .project-year {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--bronze);
+    letter-spacing: 0.04em;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    border: 1px solid var(--bronze-line);
+    padding: 3px 9px;
+  }
+
+  .project-info h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .project-info p {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.65;
+  }
+
+  /* ---------- project modal ---------- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(28, 27, 25, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--bone);
+    border: 1px solid var(--bronze-line);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bone);
+    border: 1px solid var(--bronze-line);
+    font-size: 20px;
+    line-height: 1;
+    color: var(--ink);
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .modal-close:hover,
+  .modal-close:focus-visible {
+    color: var(--bronze);
+    border-color: var(--bronze);
+  }
+
+  .modal-thumb {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--stone);
+    border-bottom: 1px solid var(--bronze-line);
+  }
+
+  .modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-body {
+    padding: 32px 36px 36px;
+  }
+
+  .modal-body .project-meta {
+    margin-bottom: 16px;
+  }
+
+  .modal-body h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .modal-body p {
+    font-size: 14.5px;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .modal-body .btn {
+    margin-top: 8px;
+  }
+
   /* ---------- publications ---------- */
   .pub-list {
     display: flex;
@@ -872,6 +1135,9 @@
       gap: 36px;
     }
     .research-grid {
+      grid-template-columns: 1fr;
+    }
+    .projects-grid {
       grid-template-columns: 1fr;
     }
     .teach-grid {

@@ -11,6 +11,7 @@ export const CONTENT = {
     links: [
       {label: "About", href: "#about"},
       {label: "Research", href: "#research"},
+      {label: "Projects", href: "#projects"},
       {label: "Publications", href: "#publications"},
       {label: "Field Notes", href: "#notes"},
       {label: "Teaching", href: "#teaching"},
@@ -61,6 +62,62 @@ export const CONTENT = {
         index: "03 / SOFTWARE & INFORMATION SYSTEMS",
         title: "Tooling, Retrieval & Forensics",
         body: "Systems-facing work: a GraphQL code-generation tool for CRUD and access control, a contextual researcher-recommender system, Android forensic timeline extraction, and optimization for supply selection.",
+      },
+    ],
+  },
+
+  projects: {
+    marginalia: "Selected builds",
+    items: [
+      {
+        thumb: "/projects/NZXam.png",
+        year: "2026",
+        tags: ["Web", "Education"],
+        title: "NZXam",
+        summary:
+          "A classroom platform for managing classes, assignments, quizzes, and grades in one place.",
+        description: [
+          "NZXam is a classroom platform that brings class management, assignments, quizzes, and grading into a single system.",
+          "It gives instructors a consistent workflow for running a course end to end, from posting assignments and quizzes to tracking and recording student grades.",
+        ],
+      },
+      {
+        thumb: "/projects/myif-monev.png",
+        year: "2025",
+        tags: ["Web", "Monitoring"],
+        title: "MyIF Monev",
+        summary:
+          "A monitoring system for student internship and enrichment programs at the Department of Informatics, ITS.",
+        description: [
+          "MyIF Monev is a monitoring system built for the Department of Informatics at Institut Teknologi Sepuluh Nopember, tracking students through internship (magang) and independent-study enrichment programs.",
+          "It gives program coordinators visibility into student progress and status across placements, replacing scattered manual tracking with a single system of record.",
+        ],
+        href: "https://myif-monev.nafkhan.id/",
+      },
+      {
+        thumb: "/projects/omr-exam.png",
+        year: "2024",
+        tags: ["Web", "Computer Vision"],
+        title: "OMR Exam",
+        summary:
+          "A web application that automates the grading of multiple-choice exams using a camera.",
+        description: [
+          "OMR Exam is a web application for automated grading of multiple-choice exams via optical mark recognition, using a camera to capture answer sheets instead of a dedicated scanner.",
+          "It detects and reads filled-in answer bubbles from the captured image, scores each sheet against an answer key, and removes the manual work of correcting exams by hand.",
+        ],
+      },
+      {
+        thumb: "/projects/aotnorequiem.png",
+        year: "2022",
+        tags: ["Fiction", "Fanfiction"],
+        title: "AoT no Requiem",
+        summary:
+          "A work of Attack on Titan fanfiction that departs from the original story enough to stand on its own.",
+        description: [
+          "AoT no Requiem is a fanfiction project set in the world of Attack on Titan, appropriating only the concept of the original characters and plot — no direct asset-borrowing — and diverging enough from the source story to be its own work rather than a redraw.",
+          "It is non-commercial and made under fair use.",
+        ],
+        href: "https://www.aotnorequiem.com/",
       },
     ],
   },
@@ -186,6 +243,12 @@ export const CONTENT = {
         term: "FALL 2024",
         title: "Object-Oriented Programming",
         body: "Undergraduate course on object-oriented design principles and patterns.",
+      },
+      {
+        code: "AP CSA",
+        term: "2024",
+        title: "AP Computer Science A",
+        body: "Advanced Placement course covering Java-based object-oriented programming, data structures, and algorithms at the college level.",
       },
     ],
   },
