@@ -103,8 +103,8 @@ export const CONTENT = {
       },
       {
         index: "03 / SOFTWARE & INFORMATION SYSTEMS",
-        title: "Tooling, Retrieval & Forensics",
-        body: "Systems-facing work: a GraphQL code-generation tool for CRUD and access control, a contextual researcher-recommender system, Android forensic timeline extraction, and optimization for supply selection.",
+        title: "Tooling & Retrieval",
+        body: "Systems-facing work: a GraphQL code-generation tool for CRUD and access control, a contextual researcher-recommender system, and optimization for supply selection.",
       },
     ],
   },
