@@ -10,6 +10,7 @@ export const CONTENT = {
     markSuffix: "— NZ",
     links: [
       {label: "About", href: "#about"},
+      {label: "Education", href: "#education"},
       {label: "Research", href: "#research"},
       {label: "Projects", href: "#projects"},
       {label: "Publications", href: "#publications"},
@@ -22,9 +23,9 @@ export const CONTENT = {
   hero: {
     eyebrow: "Assistant Professor · Informatics",
     name: "Moch. Nafkhan Alzamzami",
-    role: "I work at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use — cross-lingual parsing, federated learning, and the tooling that carries research into production.",
-    quoteLatin: '"Non multa, sed multum."',
-    quoteEnglish: "Not many things, but much of one thing.",
+    role: "I work at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use — cross-lingual parsing, federated learning, homomorphic inference, and the tooling that carries research into production.",
+    quoteLatin: '"Non unum, sed multa."',
+    quoteEnglish: "Not one thing, but many.",
     primaryCta: {label: "View Publications", href: "#publications"},
     secondaryCta: {label: "Download CV", href: "https://storage.nafkhanzam.com/cv.pdf"},
     portraitInitials: "NZ",
@@ -33,15 +34,57 @@ export const CONTENT = {
   about: {
     marginalia: "On steady work",
     paragraphs: [
-      "I am an Assistant Professor in the Department of Informatics at Institut Teknologi Sepuluh Nopember. My work sits at the intersection of natural language processing, applied machine learning, and the software systems that put them to use.",
-      "I hold a bachelor's (S.T.) and master's (M.T.) from Institut Teknologi Bandung and joined the faculty straight from my master's. I've always been drawn to the unglamorous middle of engineering: not the launch, but the years of maintenance and judgment that follow it.",
-      "Alongside research, I teach introductory and advanced undergraduate courses, and I try to bring the same principle to both: build things that are honest about their limits.",
+      "I am an Assistant Professor in the Department of Informatics at Institut Teknologi Sepuluh Nopember. My work sits at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use.",
+      "I hold a bachelor's (S.T.) and master's (M.T.) from Institut Teknologi Bandung and joined the faculty straight from my master's. What draws me to engineering is the problem-solving itself: breaking a hard, ambiguous problem down until it has an honest solution.",
+      "Alongside research, I teach introductory and undergraduate courses and still compete in competitive programming — the same discipline of solving hard problems under constraints, just for its own sake.",
     ],
     stats: [
       {num: "7+", label: "Publications"},
-      {num: "3+", label: "Active Grants"},
-      {num: "0", label: "Graduate Students"},
+      {num: "7+", label: "Projects"},
       {num: "10+", label: "Courses Taught"},
+    ],
+  },
+
+  education: {
+    marginalia: "On the way to Ph.D.",
+    items: [
+      {
+        logo: "/education/itb.svg",
+        institution: "Institut Teknologi Bandung",
+        degree: "Master's Degree in Informatics",
+        gpa: {score: "3.89", scale: "4.00"},
+        period: "2022 - 2023",
+        details: [
+          {label: "Submajor", value: "Intelligent System"},
+          {
+            label: "Focuses",
+            value: "Artificial Intelligence, Deep Learning, Natural Language Processing",
+          },
+          {
+            label: "Thesis",
+            value:
+              "Abstract Meaning Representation Parser Development for Cross-lingual Indonesian-English with BART, Input Concatenation, and Dataset Augmentation",
+          },
+        ],
+      },
+      {
+        logo: "/education/itb.svg",
+        institution: "Institut Teknologi Bandung",
+        degree: "Bachelor's Degree in Informatics Engineering",
+        gpa: {score: "3.74", scale: "4.00"},
+        period: "2018 - 2022",
+        details: [
+          {
+            label: "Focuses",
+            value: "Artificial Intelligence, Database, Software Development",
+          },
+          {
+            label: "Final Project",
+            value:
+              "GraphQL-based Backend Service Development Tool for CRUD Operations, Authentication, and Authorization",
+          },
+        ],
+      },
     ],
   },
 
@@ -54,7 +97,7 @@ export const CONTENT = {
         body: "Cross-lingual Abstract Meaning Representation parsing, aspect-based sentiment and sarcasm detection in text, and vision-transformer approaches to image steganography.",
       },
       {
-        index: "02 / FEDERATED LEARNING & HOMOMORPHIC ENCRYPTION",
+        index: "02 / PRIVACY-PRESERVING ML",
         title: "Privacy-Preserving Machine Learning",
         body: "Training and evaluating models without centralizing raw data — federated learning across distributed clients, and computation over encrypted data via homomorphic encryption.",
       },
@@ -124,6 +167,7 @@ export const CONTENT = {
 
   publications: {
     marginalia: "Ordered by year",
+    viewAllHref: "https://scholar.google.com/citations?user=G4Fe6dYAAAAJ&hl=en",
     items: [
       {
         year: "2025",
@@ -154,29 +198,39 @@ export const CONTENT = {
   },
 
   notes: {
-    marginalia: "Private reflections, made public",
+    marginalia: "Borrowed wisdom",
     intro:
-      "Marcus Aurelius wrote the Meditations to no one but himself — a discipline of thinking clearly before acting. These are shorter versions of the same habit, kept in the course of research and teaching.",
+      "The Stoics wrote to steady their own thinking before acting, not to be quoted centuries later. These are the lines I return to most, in research and in teaching alike.",
     items: [
       {
         mark: "I",
-        text: "A system that cannot say how it fails has not really been designed — it has only been assembled.",
-        gloss: "On reviewing a student's thesis draft that had no failure-mode section.",
+        text: "Happiness is possible even in a palace.",
+        gloss: "Marcus Aurelius, Meditations",
       },
       {
         mark: "II",
-        text: "The paper you are proudest of is rarely the one that was easiest to write.",
-        gloss: "After a third revision of the OSDI submission.",
+        text: "It's not what happens to you, but how you react to it that matters.",
+        gloss: "Epictetus, Enchiridion",
       },
       {
         mark: "III",
-        text: "Teach the failure before the success. Students remember what breaks longer than what works.",
-        gloss: "Lecture note, Systems Design, Week 4.",
+        text: "The impediment to action advances action. What stands in the way becomes the way.",
+        gloss: "Marcus Aurelius, Meditations",
       },
       {
         mark: "IV",
-        text: "Peer review is not an obstacle to the work. It is, inconveniently, part of the work.",
-        gloss: "On receiving reviewer #2.",
+        text: "We suffer more often in imagination than in reality.",
+        gloss: "Seneca, Letters from a Stoic",
+      },
+      {
+        mark: "V",
+        text: "Waste no more time arguing what a good man should be. Be one.",
+        gloss: "Marcus Aurelius, Meditations",
+      },
+      {
+        mark: "VI",
+        text: "The best revenge is not to be like your enemy.",
+        gloss: "Marcus Aurelius, Meditations",
       },
     ],
   },
@@ -255,8 +309,8 @@ export const CONTENT = {
 
   contact: {
     quoteLatin:
-      '"You have power over your mind — not outside events. Realize this, and you will find strength."',
-    quoteAttribution: "Marcus Aurelius, Meditations",
+      "\"Stop complaining, because there are only two kinds of things: those you can control and those you can't. If you can't control it, complaining about it is just a waste of time — what is there to discuss about something you can't control? If you can control it — like your intentions, your attitude, and your actions — who else are you expecting to help you but yourself? Stop complaining about that too.\"",
+    quoteAttribution: "Prof. Michael Sugrue, Marcus Aurelius' Meditations: The Stoic Ideal",
     links: [
       {label: "Email", href: "mailto:nafkhan@its.ac.id"},
       {label: "Scopus", href: "https://www.scopus.com/authid/detail.uri?authorId=58044883300"},
@@ -272,6 +326,6 @@ export const CONTENT = {
 
   footer: {
     copyright: `© ${new Date().getFullYear()} Moch. Nafkhan Alzamzami. Department of Informatics, Institut Teknologi Sepuluh Nopember.`,
-    tagline: "Built with discipline.",
+    tagline: "NZ",
   },
 };
