@@ -6,10 +6,11 @@ export const CONTENT = {
   },
 
   nav: {
-    mark: "Nafkhan",
-    markSuffix: "— NZ",
+    mark: "",
+    markSuffix: "NZ",
     links: [
       {label: "About", href: "#about"},
+      {label: "Position", href: "#position"},
       {label: "Education", href: "#education"},
       {label: "Research", href: "#research"},
       {label: "Projects", href: "#projects"},
@@ -42,6 +43,30 @@ export const CONTENT = {
       {num: "7+", label: "Publications"},
       {num: "7+", label: "Projects"},
       {num: "10+", label: "Courses Taught"},
+    ],
+  },
+
+  position: {
+    marginalia: "Current appointment",
+    items: [
+      {
+        logo: "/education/its.png",
+        institution: "Institut Teknologi Sepuluh Nopember",
+        role: "Assistant Professor",
+        period: "2023 - Present",
+        details: [
+          {
+            label: "Department",
+            value:
+              "Department of Informatics, Faculty of Intelligent Electrical and Informatics Technology",
+          },
+          {
+            label: "Focus",
+            value:
+              "Research and teaching in natural language processing, privacy-preserving machine learning, and software engineering",
+          },
+        ],
+      },
     ],
   },
 
