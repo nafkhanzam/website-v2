@@ -138,14 +138,14 @@ export const CONTENT = {
     marginalia: "Selected builds",
     items: [
       {
-        thumb: "/projects/NZXam.png",
+        thumb: "/projects/nzlms.png",
         year: "2026",
         tags: ["Web", "Education"],
-        title: "NZXam",
+        title: "NZ LMS",
         summary:
           "A classroom platform for managing classes, assignments, quizzes, and grades in one place.",
         description: [
-          "NZXam is a classroom platform that brings class management, assignments, quizzes, and grading into a single system.",
+          "NZ LMS is a classroom platform that brings class management, assignments, quizzes, and grading into a single system.",
           "It gives instructors a consistent workflow for running a course end to end, from posting assignments and quizzes to tracking and recording student grades.",
         ],
       },
