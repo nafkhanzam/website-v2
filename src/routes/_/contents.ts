@@ -148,6 +148,7 @@ export const CONTENT = {
           "NZ LMS is a classroom platform that brings class management, assignments, quizzes, and grading into a single system.",
           "It gives instructors a consistent workflow for running a course end to end, from posting assignments and quizzes to tracking and recording student grades.",
         ],
+        href: "https://lms.nafkhan.id/",
       },
       {
         thumb: "/projects/myif-monev.png",
