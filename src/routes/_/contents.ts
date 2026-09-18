@@ -1,3 +1,16 @@
+/** Toggle a section on/off. Hidden sections are also dropped from the nav links. */
+export const SECTIONS = {
+  about: true,
+  position: true,
+  education: true,
+  research: true,
+  projects: true,
+  publications: true,
+  notes: false,
+  teaching: true,
+  contact: true,
+};
+
 export const CONTENT = {
   site: {
     title: "Moch. Nafkhan Alzamzami, S.T., M.T. — Assistant Professor of Informatics",
@@ -9,15 +22,15 @@ export const CONTENT = {
     mark: "",
     markSuffix: "NZ",
     links: [
-      {label: "About", href: "#about"},
-      {label: "Position", href: "#position"},
-      {label: "Education", href: "#education"},
-      {label: "Research", href: "#research"},
-      {label: "Projects", href: "#projects"},
-      {label: "Publications", href: "#publications"},
-      {label: "Field Notes", href: "#notes"},
-      {label: "Teaching", href: "#teaching"},
-      {label: "Contact", href: "#contact"},
+      {label: "About", href: "/#about" as const},
+      {label: "Position", href: "/#position" as const},
+      {label: "Education", href: "/#education" as const},
+      {label: "Research", href: "/#research" as const},
+      {label: "Projects", href: "/#projects" as const},
+      {label: "Publications", href: "/#publications" as const},
+      {label: "Field Notes", href: "/#notes" as const},
+      {label: "Teaching", href: "/#teaching" as const},
+      {label: "Contact", href: "/#contact" as const},
     ],
   },
 
@@ -25,9 +38,9 @@ export const CONTENT = {
     eyebrow: "Assistant Professor · Informatics",
     name: "Moch. Nafkhan Alzamzami",
     role: "I work at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use — cross-lingual parsing, federated learning, homomorphic inference, and the tooling that carries research into production.",
-    quoteLatin: '"Non unum, sed multa."',
-    quoteEnglish: "Not one thing, but many.",
-    primaryCta: {label: "View Publications", href: "#publications"},
+    quote:
+      '"You have power over your mind — not outside events. Realize this, and you will find strength."',
+    primaryCta: {label: "View Publications", href: "/#publications" as const},
     secondaryCta: {label: "Download CV", href: "https://storage.nafkhanzam.com/cv.pdf"},
     portraitInitials: "NZ",
   },
@@ -139,6 +152,7 @@ export const CONTENT = {
     items: [
       {
         thumb: "/projects/nzlms.png",
+        thumbAlign: "top",
         year: "2026",
         tags: ["Web", "Education"],
         title: "NZ LMS",
@@ -151,7 +165,22 @@ export const CONTENT = {
         href: "https://lms.nafkhan.id/",
       },
       {
+        thumb: "/projects/juti-typst-template.png",
+        thumbAlign: "top",
+        year: "2025",
+        tags: ["Typst", "Academic Writing"],
+        title: "JUTI Typst Template",
+        summary:
+          "A Typst template for writing articles for JUTI: Jurnal Ilmiah Teknologi Informasi.",
+        description: [
+          "A Typst template that implements the article format for JUTI: Jurnal Ilmiah Teknologi Informasi, a biannual, open-access journal in informatics/information technology.",
+          "It handles author and CRediT contribution declarations, affiliations, and the journal's layout conventions, so authors can focus on writing rather than formatting.",
+        ],
+        href: "https://typst.app/universe/package/juti",
+      },
+      {
         thumb: "/projects/myif-monev.png",
+        thumbAlign: "top",
         year: "2025",
         tags: ["Web", "Monitoring"],
         title: "MyIF Monev",
@@ -165,6 +194,7 @@ export const CONTENT = {
       },
       {
         thumb: "/projects/omr-exam.png",
+        thumbAlign: "top",
         year: "2024",
         tags: ["Web", "Computer Vision"],
         title: "OMR Exam",
@@ -177,6 +207,7 @@ export const CONTENT = {
       },
       {
         thumb: "/projects/aotnorequiem.png",
+        thumbAlign: "top",
         year: "2022",
         tags: ["Fiction", "Fanfiction"],
         title: "AoT no Requiem",
