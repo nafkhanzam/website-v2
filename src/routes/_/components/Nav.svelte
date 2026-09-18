@@ -2,7 +2,7 @@
   import {CONTENT, SECTIONS} from "../contents";
 
   const links = CONTENT.nav.links.filter(
-    (link) => SECTIONS[link.href.slice(1) as keyof typeof SECTIONS] ?? true,
+    (link) => SECTIONS[link.href.slice(2) as keyof typeof SECTIONS] ?? true,
   );
 
   let mobileNavOpen = $state(false);
