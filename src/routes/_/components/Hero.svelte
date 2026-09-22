@@ -11,7 +11,9 @@
       <p class="hero-role">{CONTENT.hero.role}</p>
 
       <div class="hero-quote">
-        <p class="quote">{CONTENT.hero.quote}</p>
+        <p class="quote">{CONTENT.hero.quote} <span class="quote-attribution"
+            >— {CONTENT.hero.quoteAttribution}</span
+          ></p>
       </div>
 
       <div class="hero-actions">
@@ -78,6 +80,12 @@
     font-size: 19px;
     color: var(--bronze);
     line-height: 1.5;
+  }
+
+  .hero-quote .quote-attribution {
+    font-style: normal;
+    font-size: 14px;
+    color: var(--charcoal);
   }
 
   .hero-actions {

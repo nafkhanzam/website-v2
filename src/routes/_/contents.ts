@@ -40,6 +40,7 @@ export const CONTENT = {
     role: "I work at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use — cross-lingual parsing, federated learning, homomorphic inference, and the tooling that carries research into production.",
     quote:
       '"You have power over your mind — not outside events. Realize this, and you will find strength."',
+    quoteAttribution: "Marcus Aurelius",
     primaryCta: {label: "View Publications", href: "/#publications" as const},
     secondaryCta: {label: "Download CV", href: "https://storage.nafkhanzam.com/cv.pdf"},
     portraitInitials: "NZ",
