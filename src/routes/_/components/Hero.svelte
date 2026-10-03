@@ -7,13 +7,16 @@
   <div class="wrap hero-grid">
     <div>
       <div class="hero-eyebrow eyebrow">{CONTENT.hero.eyebrow}</div>
-      <h1 class="hero-name">{CONTENT.hero.name}</h1>
+      <h1 class="hero-name">
+        {CONTENT.hero.name}<span class="hero-degrees">, {CONTENT.hero.degrees}</span>
+      </h1>
       <p class="hero-role">{CONTENT.hero.role}</p>
 
       <div class="hero-quote">
-        <p class="quote">{CONTENT.hero.quote} <span class="quote-attribution"
-            >— {CONTENT.hero.quoteAttribution}</span
-          ></p>
+        <p class="quote">
+          {CONTENT.hero.quote}
+          <span class="quote-attribution">— {CONTENT.hero.quoteAttribution}</span>
+        </p>
       </div>
 
       <div class="hero-actions">
@@ -59,6 +62,13 @@
     line-height: 1.05;
     letter-spacing: -0.01em;
     color: var(--ink);
+  }
+
+  .hero-degrees {
+    font-size: 0.5em;
+    font-weight: 400;
+    color: var(--bronze);
+    letter-spacing: 0;
   }
 
   .hero-role {

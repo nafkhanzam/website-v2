@@ -37,6 +37,7 @@ export const CONTENT = {
   hero: {
     eyebrow: "Assistant Professor · Informatics",
     name: "Moch. Nafkhan Alzamzami",
+    degrees: "S.T., M.T.",
     role: "I work at the intersection of natural language processing, privacy-preserving machine learning, and the software systems that put them to use — cross-lingual parsing, federated learning, homomorphic inference, and the tooling that carries research into production.",
     quote:
       '"You have power over your mind — not outside events. Realize this, and you will find strength."',
@@ -91,6 +92,7 @@ export const CONTENT = {
         logo: "/education/itb.svg",
         institution: "Institut Teknologi Bandung",
         degree: "Master's Degree in Informatics",
+        title: "M.T.",
         gpa: {score: "3.89", scale: "4.00"},
         period: "2022 - 2023",
         details: [
@@ -110,6 +112,7 @@ export const CONTENT = {
         logo: "/education/itb.svg",
         institution: "Institut Teknologi Bandung",
         degree: "Bachelor's Degree in Informatics Engineering",
+        title: "S.T.",
         gpa: {score: "3.74", scale: "4.00"},
         period: "2018 - 2022",
         details: [

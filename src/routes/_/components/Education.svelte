@@ -19,7 +19,9 @@
               </div>
               <div>
                 <h3>{edu.institution}</h3>
-                <div class="edu-degree">{edu.degree}</div>
+                <div class="edu-degree">
+                  {edu.degree}<span class="edu-title">, {edu.title}</span>
+                </div>
               </div>
             </div>
             <div class="edu-meta">
@@ -97,6 +99,11 @@
     margin-top: 4px;
     font-size: 14.5px;
     color: var(--charcoal);
+  }
+
+  .edu-title {
+    font-weight: 600;
+    color: var(--bronze);
   }
 
   .edu-meta {
